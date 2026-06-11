@@ -15,6 +15,8 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicBookingsCreateRouteImport } from './routes/api/public/bookings/create'
+import { Route as ApiPublicBookingsAvailabilityRouteImport } from './routes/api/public/bookings/availability'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -46,6 +48,17 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicBookingsCreateRoute = ApiPublicBookingsCreateRouteImport.update({
+  id: '/api/public/bookings/create',
+  path: '/api/public/bookings/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicBookingsAvailabilityRoute =
+  ApiPublicBookingsAvailabilityRouteImport.update({
+    id: '/api/public/bookings/availability',
+    path: '/api/public/bookings/availability',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +67,8 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/public/bookings/availability': typeof ApiPublicBookingsAvailabilityRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +77,8 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/public/bookings/availability': typeof ApiPublicBookingsAvailabilityRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +88,8 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/public/bookings/availability': typeof ApiPublicBookingsAvailabilityRoute
+  '/api/public/bookings/create': typeof ApiPublicBookingsCreateRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,6 +100,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/services'
     | '/sitemap.xml'
+    | '/api/public/bookings/availability'
+    | '/api/public/bookings/create'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -89,6 +110,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/services'
     | '/sitemap.xml'
+    | '/api/public/bookings/availability'
+    | '/api/public/bookings/create'
   id:
     | '__root__'
     | '/'
@@ -97,6 +120,8 @@ export interface FileRouteTypes {
     | '/contact'
     | '/services'
     | '/sitemap.xml'
+    | '/api/public/bookings/availability'
+    | '/api/public/bookings/create'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -106,6 +131,8 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiPublicBookingsAvailabilityRoute: typeof ApiPublicBookingsAvailabilityRoute
+  ApiPublicBookingsCreateRoute: typeof ApiPublicBookingsCreateRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -152,6 +179,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/bookings/create': {
+      id: '/api/public/bookings/create'
+      path: '/api/public/bookings/create'
+      fullPath: '/api/public/bookings/create'
+      preLoaderRoute: typeof ApiPublicBookingsCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/bookings/availability': {
+      id: '/api/public/bookings/availability'
+      path: '/api/public/bookings/availability'
+      fullPath: '/api/public/bookings/availability'
+      preLoaderRoute: typeof ApiPublicBookingsAvailabilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -162,6 +203,8 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiPublicBookingsAvailabilityRoute: ApiPublicBookingsAvailabilityRoute,
+  ApiPublicBookingsCreateRoute: ApiPublicBookingsCreateRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

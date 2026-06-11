@@ -31,9 +31,9 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground">Contact</h4>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> hello@lumen.co</li>
-              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /> WhatsApp</li>
-              <li className="flex items-center gap-2"><Linkedin className="h-4 w-4" /> LinkedIn</li>
+              <li className="flex items-center gap-2"><Mail className="h-4 w-4" /><span>hello@lumen.co</span></li>
+              <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /><span>WhatsApp</span></li>
+              <li className="flex items-center gap-2"><Linkedin className="h-4 w-4" /><span>LinkedIn</span></li>
             </ul>
           </div>
 
