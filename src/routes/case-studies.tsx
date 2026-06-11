@@ -11,7 +11,7 @@ export const Route = createFileRoute("/case-studies")({
       { property: "og:description", content: "Retail dashboards, customer segmentation, and marketing reports." },
     ],
   }),
-  component: CaseStudies;
+  component: CaseStudies,
 });
 
 const cases = [
